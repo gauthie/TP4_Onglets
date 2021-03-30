@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.onglets.R;
 
+import java.util.Locale;
+
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
@@ -25,17 +27,29 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         mContext = context;
     }
 
-    @Override
     public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+        switch (position) {
+            case 0:
+                return NatureFragment.newInstance(0, mContext.getString(R.string.titre_section0));
+            case 1:
+                return NatureFragment.newInstance(1, mContext.getString(R.string.titre_section1));
+            case 2:
+                return NatureFragment.newInstance(2, mContext.getString(R.string.titre_section2));
+        }
+        return null;
     }
 
-    @Nullable
-    @Override
     public CharSequence getPageTitle(int position) {
-        return mContext.getResources().getString(TAB_TITLES[position]);
+        Locale l = Locale.getDefault();
+        switch (position) {
+            case 0:
+                return mContext.getString(R.string.titre_section0).toUpperCase(l);
+            case 1:
+                return mContext.getString(R.string.titre_section1).toUpperCase(l);
+            case 2:
+                return mContext.getString(R.string.titre_section2).toUpperCase(l);
+        }
+        return null;
     }
 
     @Override
