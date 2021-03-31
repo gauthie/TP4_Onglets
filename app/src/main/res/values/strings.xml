@@ -5,7 +5,8 @@
     <string name="action_settings">action_settings</string>
     <string name="action_settings2">action_setting2</string>
     <string name="action_settings3">action_settings3</string>
-    <string name="titre_section0">Minéraux</string>
-    <string name="titre_section1">Végétaux</string>
-    <string name="titre_section2">Animaux</string>
+    <string name="titre_section0">Été</string>
+    <string name="titre_section1">Printemps</string>
+    <string name="titre_section2">Automne</string>
+    <string name="titre_section3">Hiver</string>
 </resources>

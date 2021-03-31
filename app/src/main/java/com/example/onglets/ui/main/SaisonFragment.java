@@ -13,7 +13,7 @@ import com.example.onglets.R;
 /**
  * une instance de NatureFragment contient ici juste un label
  */
-public class NatureFragment extends Fragment {
+public class SaisonFragment extends Fragment {
     // Les champs utilisés par chaque Fragment
     //Ils sont distincts pour chaque NatureFragment instancié
     private String title;
@@ -29,8 +29,8 @@ public class NatureFragment extends Fragment {
      * Retourne une nouvelle instance de ce fragment
      * pour le numéro de section donné.
      */
-    public static NatureFragment newInstance(int position, String title) {
-        NatureFragment fragment = new NatureFragment();
+    public static SaisonFragment newInstance(int position, String title) {
+        SaisonFragment fragment = new SaisonFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, position);
         args.putString(ARG_SECTION_TITLE, title);
