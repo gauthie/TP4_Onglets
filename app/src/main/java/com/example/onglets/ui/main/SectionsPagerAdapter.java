@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
+import android.widget.ImageView;
 
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.onglets.R;
 
 import java.util.Locale;
+
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -48,22 +50,23 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Locale l = Locale.getDefault();
         String titre="";
         Drawable icone=null;
+        Drawable image=null;
         switch (position) {
             case 0:
                 titre = mContext.getString(R.string.titre_section0).toUpperCase(l);
-                //icone = mContext.getResources().getDrawable(R.drawable.ete);
+                icone = mContext.getResources().getDrawable(R.drawable.ete);
                 break;
             case 1:
                 titre = mContext.getString(R.string.titre_section1).toUpperCase(l);
-                //icone = mContext.getResources().getDrawable(R.drawable.printemps);
+                icone = mContext.getResources().getDrawable(R.drawable.printemps);
                 break;
             case 2:
                 titre = mContext.getString(R.string.titre_section2).toUpperCase(l);
-                //icone = mContext.getResources().getDrawable(R.drawable.automne);
+                icone = mContext.getResources().getDrawable(R.drawable.automne);
                 break;
             case 3:
                 titre = mContext.getString(R.string.titre_section3).toUpperCase();
-               //icone = mContext.getResources().getDrawable(R.drawable.hiver);
+               icone = mContext.getResources().getDrawable(R.drawable.hiver);
         }
         SpannableString sb = new SpannableString(" " + titre);
 // un espace est ajouté pour séparer le texte de l'image
@@ -72,12 +75,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         ImageSpan span = new ImageSpan(icone, ImageSpan.ALIGN_BASELINE);
         sb.setSpan(span, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
+        image = (ImageView) findViewById(R.id.imageView);
+        image.setImageResource(R.drawable.printemps);
+
+
         return sb;
     }
 
     @Override
     public int getCount() {
-        // Show 2 total pages.
+        // Show 4 total pages.
         return 4;
     }
 }
